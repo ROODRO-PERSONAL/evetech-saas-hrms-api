@@ -12,6 +12,19 @@ class Employee extends Model
     use BelongsToCompany;
 
 
+    protected $fillable = [
+        'employee_id',
+        'name',
+        'email',
+        'department',
+        'date_of_joining',
+        'status',
+    ];
+
+    protected $casts = [
+        'date_of_joining' => 'date',
+    ];
+
     public function company()
     {
         return $this->belongsTo(Company::class);
